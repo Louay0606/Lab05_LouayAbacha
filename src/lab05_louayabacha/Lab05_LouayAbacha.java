@@ -67,8 +67,8 @@ public class Lab05_LouayAbacha extends Application {
         ,"Leather","Plain"};
         
         bagList.setItems(FXCollections.observableArrayList(bags));
-        bagList.setPrefWidth(Integer.MAX_VALUE);
-        bagList.setPrefHeight(Integer.MAX_VALUE);
+        bagList.setPrefWidth(180);
+        bagList.setPrefHeight(150);
         
      
       
@@ -78,8 +78,7 @@ public class Lab05_LouayAbacha extends Application {
         ComboBox<String> quantityBox = new ComboBox<String>();
         quantityBox.getItems().addAll("1","2","3","4","5","6","7","8","9","10");
         quantityBox.setPromptText("Quantity");
-        
-           
+        quantityBox.setMaxWidth(100);
         
        //create RadioButtons
        Label sizeLabel = new Label("select a size");
@@ -94,7 +93,7 @@ public class Lab05_LouayAbacha extends Application {
        mediumBtn.setToggleGroup(sizes);
        largeBtn.setToggleGroup(sizes);
        
-       VBox radioBtns = new VBox(5,smallBtn,mediumBtn,largeBtn);
+       VBox radioBtns = new VBox(15,smallBtn,mediumBtn,largeBtn);
        
     
        
@@ -108,7 +107,7 @@ public class Lab05_LouayAbacha extends Application {
        
         messageLabel.setText("You ordered " + quantity + " " + 
                 selectedSize.getText() +" " + selectedBag + "Bags") ;
-           } );
+         } );
       clearBtn.setOnAction((ActionEvent e) -> {
        bagList.getSelectionModel().clearSelection();
        quantityBox.setValue(null);
@@ -120,12 +119,16 @@ public class Lab05_LouayAbacha extends Application {
       //GridPane
       aPane.add(bagList, 0, 1);
       aPane.add(bagLabel, 0, 0);
+      
       aPane.add(QuantityLabel, 1, 0);
-      aPane.add(quantityBox, 1, 1);   
+      aPane.add(quantityBox, 1, 1);  
+      
       aPane.add(sizeLabel, 2, 0);
       aPane.add(buttons, 0, 2);
+      
       aPane.add(radioBtns, 2, 1);
       aPane.add(messageLabel,0,3,3,1);
+      
       GridPane.setColumnSpan(messageLabel, 3);
       GridPane.setMargin(bagList, new Insets(0,10,0,0));
       GridPane.setMargin(bagList, new Insets(10,0,0,0));
