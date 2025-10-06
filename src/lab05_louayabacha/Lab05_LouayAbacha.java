@@ -61,7 +61,7 @@ public class Lab05_LouayAbacha extends Application {
         
         //ListView 
         
-        Label bagLabel = new Label("Select bag style!: ");
+        Label bagLabel = new Label("Select bag style :  ");
         ListView<String> bagList= new ListView<String>();
         String[] bags ={"Full Decorative","Beaded","Pirate Design","Fringed"
         ,"Leather","Plain"};
@@ -103,12 +103,12 @@ public class Lab05_LouayAbacha extends Application {
        
       orderBtn.setOnAction((ActionEvent e)->{
         String selectedBag = bagList.getSelectionModel().getSelectedItem();
-        String quantity = quantityBox.getSelectionModel().getSelectedItem();
-        Object selectedSize = sizes.getSelectedToggle();
+        String quantity = quantityBox.getValue();
+        RadioButton selectedSize = (RadioButton) sizes.getSelectedToggle();
        
-        messageLabel.setText("You ordered" +quantity + selectedSize+ selectedBag);
-      } );  
-        
+        messageLabel.setText("You ordered " + quantity + " " + 
+                selectedSize.getText() +" " + selectedBag + "Bags") ;
+           } );
       clearBtn.setOnAction((ActionEvent e) -> {
        bagList.getSelectionModel().clearSelection();
        quantityBox.setValue(null);
