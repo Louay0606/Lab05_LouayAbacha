@@ -11,9 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -49,6 +52,7 @@ public class Lab05_LouayAbacha extends Application {
         clearBtn.setMinHeight(40);
         clearBtn.setMinWidth(120);
         HBox buttons = new HBox(10,orderBtn,clearBtn);
+        
         aPane.add(buttons, 0, 2);
         //ListView 
         
@@ -60,16 +64,31 @@ public class Lab05_LouayAbacha extends Application {
         bagList.setItems(FXCollections.observableArrayList(bags));
         bagList.setPrefWidth(Integer.MAX_VALUE);
         bagList.setPrefHeight(Integer.MAX_VALUE);
+        
         aPane.add(bagList, 0, 0);
       
         //ComboBox 
         Label QuantityLabel = new Label("select the Quantity: ");
         ComboBox<String> quantityBox = new ComboBox<String>();
         quantityBox.getItems().addAll("1","2","3","4","5","6","7","8","9","10");
-        quantityBox.setPromptText("Quntity");
+        quantityBox.setPromptText("Quantity");
         
+        aPane.add(quantityBox, 0, 2);      
+        
+       //create RadioButtons
+       Label sizeLabel = new Label("select a size");
+       RadioButton smallBtn = new RadioButton("SMALL");
+       RadioButton mediumBtn = new RadioButton("Medium");
+       RadioButton largeBtn = new RadioButton("Large");
        
-   
+       ToggleGroup sizes = new ToggleGroup();
+       
+       smallBtn.setToggleGroup(sizes);
+       mediumBtn.setToggleGroup(sizes);
+       largeBtn.setToggleGroup(sizes);
+       
+       VBox radioBtns = new VBox(5,smallBtn,mediumBtn,largeBtn);
+       aPane.add(radioBtns, 2, 1);
     }
        
     
