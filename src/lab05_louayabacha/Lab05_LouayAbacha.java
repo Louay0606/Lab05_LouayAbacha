@@ -5,8 +5,11 @@
 package lab05_louayabacha;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -27,6 +30,7 @@ public class Lab05_LouayAbacha extends Application {
 
     @Override
     public void start(Stage stage) {
+        //GridPane
         GridPane aPane = new GridPane();
         aPane.setPadding(new Insets(10,10,10,10));
         
@@ -45,7 +49,18 @@ public class Lab05_LouayAbacha extends Application {
         clearBtn.setMinWidth(120);
         HBox buttons = new HBox(10,orderBtn,clearBtn);
         
+        //ListView 
         
+        Label bagLabel = new Label("Select bag style!: ");
+        ListView<String> bagList= new ListView<String>();
+        String[] bags ={"Full Decorative","Beaded","Pirate Design","Fringed"
+        ,"Leather","Plain"};
+        
+        bagList.setItems(FXCollections.observableArrayList(bags));
+        bagList.setPrefWidth(Integer.MAX_VALUE);
+        bagList.setPrefHeight(Integer.MAX_VALUE);
+        aPane.add(bagList, 0, 0);
+      
         
         
     }
