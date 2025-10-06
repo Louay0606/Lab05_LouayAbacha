@@ -9,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -38,6 +39,13 @@ public class Lab05_LouayAbacha extends Application {
         
         Button orderBtn = new Button("order now");
         Button clearBtn = new Button("Clear selection");
+        orderBtn.setMinHeight(40);
+        orderBtn.setMinWidth(120);
+        clearBtn.setMinHeight(40);
+        clearBtn.setMinWidth(120);
+        HBox buttons = new HBox(10,orderBtn,clearBtn);
+        
+        
         
         
     }
