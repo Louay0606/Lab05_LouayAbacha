@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -48,7 +49,7 @@ public class Lab05_LouayAbacha extends Application {
         clearBtn.setMinHeight(40);
         clearBtn.setMinWidth(120);
         HBox buttons = new HBox(10,orderBtn,clearBtn);
-        
+        aPane.add(buttons, 0, 2);
         //ListView 
         
         Label bagLabel = new Label("Select bag style!: ");
@@ -61,8 +62,14 @@ public class Lab05_LouayAbacha extends Application {
         bagList.setPrefHeight(Integer.MAX_VALUE);
         aPane.add(bagList, 0, 0);
       
+        //ComboBox 
+        Label QuantityLabel = new Label("select the Quantity: ");
+        ComboBox<String> quantityBox = new ComboBox<String>();
+        quantityBox.getItems().addAll("1","2","3","4","5","6","7","8","9","10");
+        quantityBox.setPromptText("Quntity");
         
-        
+       
+   
     }
        
     
